@@ -1,0 +1,15 @@
+class Solution {
+    List<Integer> li = new ArrayList<Integer>();
+    void iot(TreeNode root){
+        if(root==null){
+            return ;
+        }
+     iot(root.left);
+     li.add(root.val);
+     iot(root.right);
+    }
+    public List<Integer> inorderTraversal(TreeNode root) {
+        iot(root);
+        return li;
+    }
+}
