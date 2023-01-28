@@ -1,0 +1,17 @@
+class Solution {
+    int sum=0;
+    public TreeNode reverse(TreeNode root){
+        if(root==null){ return null;}
+        TreeNode right=reverse(root.right);
+        sum+=root.val;
+        root.val=sum;
+        TreeNode left=reverse(root.left);
+        return root;
+        
+    }
+    public TreeNode  bstToGst(TreeNode root) {
+       
+        return reverse(root);
+
+    }
+}
