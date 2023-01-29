@@ -1,0 +1,30 @@
+class Solution {
+    public TreeNode dfs(TreeNode root,List<Integer> li){
+        if(root==null){
+            return null;
+        }
+        if(root.left==null&& root.right==null ){
+            li.add(root.val);
+        }
+        dfs(root.left,li);
+        dfs(root.right,li);
+        return root;
+    }
+    public boolean check(TreeNode r1,TreeNode r2){
+        List<Integer> li1 = new ArrayList<>();
+        List<Integer> li2 = new ArrayList<>();
+        dfs(r1,li1);
+        dfs(r2,li2);
+        System.out.println(li1);
+        System.out.println(li2);
+        
+        System.out.println(li1.contains(li2));
+        
+        return li2.equals(li1);
+
+    }
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+      return check(root1,root2);
+    }
+}
+Console
